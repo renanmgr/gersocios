@@ -1,0 +1,52 @@
+
+ <div id="main" class="container-fluid" style="margin-top: 50px">
+ 
+ 	<div id="top" class="row">
+		<div class="col-sm-10">
+			<h2>Sócios</h2>
+		</div>
+		<div class="col-sm-1">
+                        <a href="../socio/pesquisar" class="btn btn-primary pull-right h2">Pesquisar</a>
+		</div>
+		<div class="col-sm-1">
+			<a href="../socio/adicionar" class="btn btn-primary pull-right h2">Novo Sócio</a>
+		</div>
+	</div> <!-- /#top -->
+ 
+ 
+ 	<hr />
+ 	<div id="list" class="row">
+	
+	<div class="table-responsive col-md-12">
+		<table class="table table-striped" cellspacing="0" cellpadding="0">
+			<thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>E-mail</th>
+                                <th class="actions">Ações</th>
+                            </tr>
+			</thead>
+			<tbody>
+                            <?php
+                                if ($this->socios) {
+                                    foreach ($this->socios as $objeto) {
+                                        echo '<tr>
+                                                <td>'.$objeto->NomeSocio.'</td>
+                                                <td>'.$objeto->CPF.'</td>
+                                                <td>'.$objeto->Email.'</td>
+                                                <td class="actions">
+                                                    <a class="btn btn-warning btn-xs" href="../socio/atualizar?id=' . $objeto->Id . '">Editar</a>
+                                                    <a class="btn btn-danger btn-xs"  href="../socio/deletar?id=' . $objeto->Id . '">Excluir</a>
+                                                </td>
+                                              </tr>';
+                                    }
+                                }
+                            ?>	
+			</tbody>
+		</table>
+	</div>
+	
+	</div> <!-- /#list -->
+	
+ </div> <!-- /#main -->

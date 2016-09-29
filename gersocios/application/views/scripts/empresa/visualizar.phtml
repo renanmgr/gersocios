@@ -1,0 +1,57 @@
+
+ <div id="main" class="container-fluid">
+  
+  <h3 class="page-header">Dados da empresa</h3>
+  
+  <div class="row">
+    
+    <div class="col-md-4">
+      <p><strong>Nome</strong></p>
+  	  <p><?php echo $this->nome; ?></p>
+    </div>
+	
+    <div class="col-md-4">
+      <p><strong>CNPJ</strong></p>
+  	  <p><?php echo $this->cnpj; ?></p>
+    </div>
+
+  </div>
+  
+  <hr />
+  
+  <h4>Sócios dessa empresa</h4>
+  
+  <div class="row">
+      
+    <div class="col-md-4">
+        <p><strong>Nome</strong></p>
+    </div>
+	
+    <div class="col-md-4">
+        <p><strong>CPF</strong></p>
+    </div>
+
+  </div>
+  
+  <?php
+    if ($this->socios) {
+        foreach ($this->socios as $objeto) {
+            echo '<div class="row">
+
+                    <div class="col-md-4">
+                          <p>'.$objeto->NomeSocio.'</p>
+                    </div>
+
+                    <div class="col-md-4">
+                          <p>'.$objeto->CPF.'</p>
+                    </div>
+
+                  </div>';
+        }
+    }
+  ?>	
+  
+ <hr />
+ 
+ </div>
+

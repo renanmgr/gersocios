@@ -1,0 +1,75 @@
+ 
+ <div id="main" class="container-fluid">
+  
+  <h3 class="page-header">Atualizar Sócio</h3>
+  
+  <form name="atualizar_socio" action="" method="post">
+  	
+        <div class="row">
+  	  <div class="form-group col-md-4">
+  	  	<label for="input">Nome</label>
+                <input type="text" name="nome" class="form-control" value="<?php echo $this->nome; ?>">
+  	  </div>
+	  <div class="form-group col-md-4">
+  	  	<label for="input2">CPF</label>
+  	  	<input type="text" name="cpf" class="form-control" value="<?php echo $this->cpf; ?>">
+  	  </div>
+	  <div class="form-group col-md-4">
+  	  	<label for="input3">E-mail</label>
+  	  	<input type="text" name="email" class="form-control" value="<?php echo $this->email; ?>">
+  	  </div>
+	</div>
+      
+        <div id="associacoes" class="row">
+  	  <div class="form-group col-md-8">
+  	  	<label for="sel1">Associações</label>
+                <select class="form-control" name="oper" id="sel1" onChange="getData();">
+                  <option value="A">Manter atuais.</option>
+                  <option value="B">Adicionar nova.</option>
+                  <option value="C">Apagar uma.</option>
+                </select>
+  	  </div>
+	</div>
+      
+        <div id="empresas-atuais" class="row">
+  	  <div class="form-group col-md-8">
+  	  	<label for="sel2">Empresas atuais do sócio</label>
+                <select class="form-control" name="empresa-atual" id="sel1">
+                  <?php
+                    if ($this->empresasAtuais) {
+                        foreach ($this->empresasAtuais as $obj) {
+                            echo '<option value="'.$obj->Id.'">'.$obj->NomeEmpresa.'</option>';
+                        }
+                    }
+                  ?>
+                </select>
+  	  </div>
+	</div>
+      
+        <div id="empresas-cadastradas" class="row">
+  	  <div class="form-group col-md-8">
+  	  	<label for="sel3">Empresas cadastradas no sistema</label>
+                <select class="form-control" name="empresa-nova" id="sel1">
+                  <?php
+                    if ($this->empresasCadastradas) {
+                        foreach ($this->empresasCadastradas as $obj) {
+                            echo '<option value="'.$obj->Id.'">'.$obj->NomeEmpresa.'</option>';
+                        }
+                    }
+                  ?>
+                </select>
+  	  </div>
+	</div>
+	
+	<hr />
+	
+	<div class="row">
+	  <div class="col-md-12">
+	  	<button type="submit" class="btn btn-primary">Atualizar</button>
+		<a href="index" class="btn btn-default">Cancelar</a>
+	  </div>
+	</div>
+
+  </form>
+ </div>
+ 
